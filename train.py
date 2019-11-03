@@ -27,8 +27,8 @@ def get_parser():
     parser.add_argument("--emb_dim", type=int, default=300, help="Word embedding dimension.")
 
     # model parameter
-    parser.add_argument("--hidden_dim", type=int, default=256, help="RNN hidden state size.")
-    parser.add_argument("--num_layers", type=int, default=2, help="Number of RNN layers.")
+    parser.add_argument("--hidden_dim", type=int, default=200, help="RNN hidden state size.")
+    parser.add_argument("--num_layers", type=int, default=1, help="Number of RNN layers.")
     parser.add_argument('--dropout', type=float, default=0.25, help='Dropout rate.')
     parser.add_argument('--rnn_dropout', type=float, default=0.1, help='RNN dropout rate.')
     # parser.add_argument('--rnn_type', type=str, default="lstm", help='lstm type')
@@ -38,7 +38,7 @@ def get_parser():
     parser.set_defaults(bidirectional=True)
 
 
-    parser.add_argument('--lr', type=float, default=1.0, help='Applies to sgd and adagrad.')
+    parser.add_argument('--lr', type=float, default=0.3, help='Applies to sgd and adagrad.')
     parser.add_argument('--lr_decay', type=float, default=0.9, help='Learning rate decay rate.')
     parser.add_argument('--decay_epoch', type=int, default=5, help='Decay learning rate after this epoch.')
     parser.add_argument('--optim', choices=['sgd', 'adagrad', 'adam', 'adamax'], default='adam', help='Optimizer: sgd, adagrad, adam or adamax.')

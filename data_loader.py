@@ -23,10 +23,11 @@ def load_data(batch_size=32, is_test=False, device='cpu'):
     train_data, valid_data = train_data.split() 
     # Further splitting of training_data to create new training_data & validation_data
     train_iter, valid_iter = data.BucketIterator.splits(
-        (train_data, valid_data), batch_size=batch_size, sort_key=lambda x: len(x.text), repeat=False, shuffle=True)
+        (train_data, valid_data), batch_size=batch_size, sort_key=lambda x: len(x.text), \
+            repeat=False, shuffle=True, device=device)
     if is_test:
         return TEXT, data.BucketIterator.splits(
-            (test_data), batch_size=batch_size, shuffle=False
+            (test_data), batch_size=batch_size, shuffle=False, device=device
         )
     return TEXT, train_iter, valid_iter
 
