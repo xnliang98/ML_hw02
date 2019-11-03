@@ -14,7 +14,7 @@ def load_data(batch_size=32, is_test=False, device='cpu'):
         format='csv', skip_header=True, fields=[('text', TEXT), ('label', LABEL)]
     )
     print("构建vocab，并读取Word Embedding...")
-    TEXT.build_vocab(train_data, min_freq=1, vectors=Vectors(name='glove.840B.300d.txt', cache='dataset/glove/'))
+    TEXT.build_vocab(train_data, min_freq=1, vectors=Vectors(name='vector.txt', cache='dataset/glove/'))
     LABEL.build_vocab(train_data)
     print("数据读取，词表词向量构建完成...")
     print ("Length of Text Vocabulary: " + str(len(TEXT.vocab)))
